@@ -80,7 +80,7 @@
               </router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" :to="{ name: 'expense' }">
+              <router-link class="nav-link" :to="{ name: 'products' }">
                 <span class="nav-link-icon d-md-none d-lg-inline-block"
                   ><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                   <svg

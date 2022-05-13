@@ -22,6 +22,7 @@ class RouteServiceProvider extends ServiceProvider
     protected array $api_route_list=[
 
         ['folder_name'=>'Authentication','file_name'=>'auth_routes'],
+        ['folder_name'=>'Product','file_name'=>'product_routes'],
 
     ];
     /**

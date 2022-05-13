@@ -1,15 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import Home from "../Page/Home/Home.vue";
-import Register from "../Page/Register/Register.vue";
 import Login from "../Page/Login/Login.vue";
 import About from "../Page/About/About.vue";
 import NotFound from "../Page/404/404.vue";
 
 
 
-const Expense = import('../Page/Expense/Expense.vue');
-const NewExpense = import('../Page/Expense/NewExpense.vue');
+const Product = import('../Page/Product/Product.vue');
+const NewProduct = import('../Page/Product/NewProduct.vue');
+const EditProduct = import('../Page/Product/EditProduct.vue');
 
 
 const routes = [
@@ -20,25 +20,27 @@ const routes = [
         meta:{requiresAuth: false}
     },
     {
-        path: "/register-user",
-        name: "register",
-        component: Register,
-    },
-    {
         path: "/login-user",
         name: "login",
         component: Login,
     },
     {
-        path: "/my-expense",
-        name: "expense",
-        component: Expense,
+        path: "/my-products",
+        name: "products",
+        component: Product,
         meta:{requiresAuth: true}
     },
     {
-        path: "/create-expense",
-        name: "new-expense",
-        component: NewExpense,
+        path: "/create-product",
+        name: "new-product",
+        component: NewProduct,
+        meta:{requiresAuth: true}
+    },
+    {
+        path: "/edit-product/:id",
+        name: "edit-product",
+        props: true,
+        component: EditProduct,
         meta:{requiresAuth: true}
     },
     {

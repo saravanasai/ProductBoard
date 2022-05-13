@@ -2,15 +2,18 @@
   <MainLayout>
     <template v-slot:top-section>
       <Tittle>
-        <template v-slot:pre-tittle>ADD NEW EXPENSE</template>
-        <template v-slot:page-tittle>ADD NEW EXPENSE </template>
+        <template v-slot:pre-tittle>My Products</template>
+        <template v-slot:page-tittle>My Products </template>
         <template v-slot:right-side-content>
           <div class="btn-list">
             <span class="d-none d-sm-inline">
-              <router-link :to="{name:'home'}" class="btn btn-dark">Home</router-link>
+              <router-link :to="{ name: 'home' }" class="btn btn-dark"
+                >Home</router-link
+              >
             </span>
-            <button class="btn btn-primary"
-             @click="this.$router.go(-1)"
+            <router-link
+              class="btn btn-primary d-none d-sm-inline-block"
+              :to="{ name: 'new-product' }"
             >
               <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
               <svg
@@ -29,8 +32,8 @@
                 <line x1="12" y1="5" x2="12" y2="19"></line>
                 <line x1="5" y1="12" x2="19" y2="12"></line>
               </svg>
-               Back
-            </button>
+              Add New Product
+            </router-link>
             <a
               href="#"
               class="btn btn-primary d-sm-none btn-icon"
@@ -62,7 +65,18 @@
     </template>
     <template v-slot:content>
       <div class="card p-5">
-
+        <div class="row row-cards">
+          <div class="col-md-12" v-if="products">
+            <template v-for="product in products" :key="product.id">
+              <ProductCard
+                :productId="product.id"
+                :productName="product.product_name"
+                :description="product.description"
+                :handleDelete="handleDelete"
+              />
+            </template>
+          </div>
+        </div>
       </div>
     </template>
   </MainLayout>
@@ -71,11 +85,35 @@
 <script>
 import MainLayout from "../../layout/Main/Main.vue";
 import Tittle from "../../layout/Tittle/Tittle.vue";
-import ExpenseCard from "../../../components/Widget/ExpenseCard/ExpenseCard.vue"
+import ProductCard from "../../../components/Widget/ProductCard/ProductCard.vue";
+import useProduct from "../../composables/useProduct";
+import { onMounted } from "@vue/runtime-core";
 export default {
-  components: { MainLayout, Tittle,ExpenseCard },
+  components: { MainLayout, Tittle, ProductCard },
   setup() {
-    return {};
+    const { isLoading, products, destroyProduct, getProducts } = useProduct();
+
+    const handleDelete = (id) => {
+      destroyProduct(id).then((e) => {
+        if (e.status == 200) {
+          getProducts();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Product Deleted",
+            showConfirmButton: false,
+            toast: true,
+            timer: 1500,
+          });
+        }
+      });
+    };
+
+    onMounted(() => {
+      getProducts();
+    });
+
+    return { products, isLoading, handleDelete };
   },
 };
 </script>
