@@ -68,12 +68,6 @@
           </div>
         </div>
       </form>
-      <div class="text-center text-muted mt-3">
-        Don't have account yet?
-        <router-link :to="{ name: 'register' }" tabindex="-1"
-          >Sign up</router-link
-        >
-      </div>
     </div>
   </div>
 </template>

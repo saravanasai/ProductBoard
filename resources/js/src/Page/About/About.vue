@@ -1,5 +1,8 @@
 <template>
   <MainLayout>
+      <teleport to="#app">
+          <SimpleModal />
+      </teleport>
     <template v-slot:top-section>
       <Tittle>
         <template v-slot:pre-tittle>About</template>
@@ -23,6 +26,7 @@
         </template>
       </Tittle>
     </template>
+
     <template v-slot:content>
       <div class="row">
         <div class="col-12">
@@ -39,11 +43,12 @@
                 </div>
                 <div class="col-auto">
                   <router-link
-                    :to="{ name: 'new-expense' }"
+                    :to="{ name: 'new-product' }"
                     class="btn btn-primary d-none d-sm-inline-block"
                   >
                     <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                     Track Now
+
                   </router-link>
                 </div>
               </div>
@@ -52,14 +57,17 @@
         </div>
       </div>
     </template>
+
   </MainLayout>
 </template>
 
 <script>
 import Tittle from "../../layout/Tittle/Tittle.vue";
 import MainLayout from "../../layout/Main/Main.vue";
+
+
 export default {
-  components: { Tittle, MainLayout },
+  components: { Tittle, MainLayout},
 };
 </script>
 

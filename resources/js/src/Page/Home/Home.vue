@@ -7,7 +7,7 @@
         <template v-slot:right-side-content>
           <div class="btn-list">
             <span class="d-none d-sm-inline">
-              <a href="#" class="btn btn-dark"> New Project </a>
+              <a href="#" class="btn btn-dark"> New Product </a>
             </span>
             <a
               href="#"

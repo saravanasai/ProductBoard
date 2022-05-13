@@ -11,7 +11,7 @@
                 A Greate Tool To Manage Products  & simple to use.
               </h5>
               <div class="empty-action float-end">
-                <router-link :to="{name:'new-expense'}" class="btn btn-dark">
+                <router-link :to="{name:'new-product'}" class="btn btn-dark">
                   <!-- Download SVG icon from http://tabler-icons.io/i/search -->
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
