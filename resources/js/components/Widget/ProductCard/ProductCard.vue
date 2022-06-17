@@ -5,6 +5,7 @@
         <div class="col">
           <div class="font-weight-medium">
             <h2>{{ productName }}</h2>
+            <h4>{{productProductionId}}</h4>
           </div>
           <div class="text-muted">{{ description }}</div>
         </div>
@@ -101,6 +102,7 @@
 export default {
   props: {
     productId: Number,
+    productProductionId: String,
     productName: String,
     description: String,
     handleDelete:Function

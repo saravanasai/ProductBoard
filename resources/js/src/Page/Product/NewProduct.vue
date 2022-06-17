@@ -73,18 +73,39 @@
           </div>
           <div class="card-body">
             <form>
-              <div class="form-group mb-3">
-                <label class="form-label">Product Name</label>
-                <div>
-                  <input
-                    type="text"
-                    v-model="product_name"
-                    class="form-control"
-                    aria-describedby="emailHelp"
-                    placeholder="Enter Product Name"
-                  />
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label class="form-label">Product ID</label>
+                    <div class="input-group">
+                      <span class="input-group-text"> EXPR </span>
+                      <input
+                        v-model="product_id"
+                        type="number"
+                        max="9999"
+                        class="form-control"
+                        placeholder="Enter Product ID"
+                        autocomplete="off"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label class="form-label">Product Name</label>
+                    <div>
+                      <input
+                        type="text"
+                        v-model="product_name"
+                        class="form-control"
+                        aria-describedby="emailHelp"
+                        placeholder="Enter Product Name"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
+
               <div class="form-group mb-3">
                 <div class="mb-3">
                   <label class="form-label">Product Description </label>
@@ -152,12 +173,14 @@ export default {
     const { router, route } = useNavigation();
 
     const state = reactive({
+      product_id: "",
       product_name: "",
       product_description: "",
     });
 
     const handleAddNewProduct = () => {
       let data = {
+        product_id: "EXPR" + state.product_id,
         product_name: state.product_name,
         product_description: state.product_description,
       };

@@ -18,6 +18,7 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
+            "product_id"=>"EXPR".$this->faker->unique()->creditCardNumber(),
             "product_name"=>$this->faker->unique()->name,
             "product_description"=>"dummy scription",
         ];

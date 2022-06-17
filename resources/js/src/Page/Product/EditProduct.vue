@@ -73,16 +73,34 @@
           </div>
           <div class="card-body">
             <form>
-              <div class="form-group mb-3">
-                <label class="form-label">Product Name</label>
-                <div>
-                  <input
-                    type="text"
-                    v-model="product.product_name"
-                    class="form-control"
-                    aria-describedby="emailHelp"
-                    placeholder="Enter Product Name"
-                  />
+               <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label class="form-label">Product ID</label>
+                    <div class="input-group">
+                      <input
+                        v-model="product.product_id"
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter Product ID"
+                        autocomplete="off"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label class="form-label">Product Name</label>
+                    <div>
+                      <input
+                        type="text"
+                        v-model="product.product_name"
+                        class="form-control"
+                        aria-describedby="emailHelp"
+                        placeholder="Enter Product Name"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="form-group mb-3">
@@ -169,12 +187,12 @@ export default {
           });
         }
       });
-
-      console.log(product);
     };
 
     onMounted(() => {
       getProduct(props.id);
+
+      console.log(product);
     });
 
     return {

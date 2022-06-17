@@ -44,12 +44,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         route = _useNavigation.route;
 
     var state = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_5__.reactive)({
+      product_id: "",
       product_name: "",
       product_description: ""
     });
 
     var handleAddNewProduct = function handleAddNewProduct() {
       var data = {
+        product_id: "EXPR" + state.product_id,
         product_name: state.product_name,
         product_description: state.product_description
       };
@@ -196,33 +198,62 @@ var _hoisted_12 = {
   "class": "card-body"
 };
 var _hoisted_13 = {
+  "class": "row"
+};
+var _hoisted_14 = {
+  "class": "col-md-6"
+};
+var _hoisted_15 = {
   "class": "form-group mb-3"
 };
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "form-label"
+}, "Product ID", -1
+/* HOISTED */
+);
+
+var _hoisted_17 = {
+  "class": "input-group"
+};
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "input-group-text"
+}, " EXPR ", -1
+/* HOISTED */
+);
+
+var _hoisted_19 = {
+  "class": "col-md-6"
+};
+var _hoisted_20 = {
+  "class": "form-group mb-3"
+};
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "class": "form-label"
 }, "Product Name", -1
 /* HOISTED */
 );
 
-var _hoisted_15 = {
+var _hoisted_22 = {
   "class": "form-group mb-3"
 };
-var _hoisted_16 = {
+var _hoisted_23 = {
   "class": "mb-3"
 };
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "class": "form-label"
 }, "Product Description ", -1
 /* HOISTED */
 );
 
-var _hoisted_18 = {
+var _hoisted_25 = {
   "class": "form-footer"
 };
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "icon icon-tabler icon-tabler-circle-plus",
   width: "24",
@@ -255,9 +286,9 @@ var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Create ");
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Create ");
 
-var _hoisted_21 = [_hoisted_19, _hoisted_20];
+var _hoisted_28 = [_hoisted_26, _hoisted_27];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
 
@@ -302,9 +333,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       })];
     }),
     content: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-        type: "text",
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+          return _ctx.product_id = $event;
+        }),
+        type: "number",
+        max: "9999",
+        "class": "form-control",
+        placeholder: "Enter Product ID",
+        autocomplete: "off"
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.product_id]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        type: "text",
+        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
           return _ctx.product_name = $event;
         }),
         "class": "form-control",
@@ -312,8 +354,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         placeholder: "Enter Product Name"
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.product_name]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
-        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.product_name]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+        "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
           return _ctx.product_description = $event;
         }),
         "class": "form-control",
@@ -323,13 +365,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         placeholder: "Content.."
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.product_description]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-        onClick: _cache[3] || (_cache[3] = function () {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.product_description]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        onClick: _cache[4] || (_cache[4] = function () {
           return $setup.handleAddNewProduct && $setup.handleAddNewProduct.apply($setup, arguments);
         }),
         type: "button",
         "class": "btn btn-primary float-end"
-      }, _hoisted_21)])])])])])];
+      }, _hoisted_28)])])])])])];
     }),
     _: 1
     /* STABLE */
@@ -369,26 +411,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 function useProduct() {
-  var url = "/my-products/product/";
+  var url = "/my-products/product";
   var state = (0,vue__WEBPACK_IMPORTED_MODULE_1__.reactive)({
     products: {},
+    productsPagination: {},
     product: {},
     isLoading: true
   });
 
   var getProducts = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var page,
+          _args = arguments;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
+              page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
               state.isLoading = true;
-              _config__WEBPACK_IMPORTED_MODULE_2__["default"].get(url).then(function (e) {
-                state.products = e.data.data;
+              _config__WEBPACK_IMPORTED_MODULE_2__["default"].get(url + '?page=' + page).then(function (e) {
+                state.products = e.data;
                 state.isLoading = false;
               });
 
-            case 2:
+            case 3:
             case "end":
               return _context.stop();
           }
@@ -403,7 +449,7 @@ function useProduct() {
 
   var getProduct = function getProduct(id) {
     state.isLoading = true;
-    _config__WEBPACK_IMPORTED_MODULE_2__["default"].get(url + id).then(function (e) {
+    _config__WEBPACK_IMPORTED_MODULE_2__["default"].get(url + '/' + id).then(function (e) {
       state.product = e.data.data;
       state.isLoading = false;
     });
@@ -416,12 +462,12 @@ function useProduct() {
 
   var updateProduct = function updateProduct(id) {
     state.isLoading = true;
-    return _config__WEBPACK_IMPORTED_MODULE_2__["default"].put(url + id, state.product);
+    return _config__WEBPACK_IMPORTED_MODULE_2__["default"].put(url + '/' + id, state.product);
   };
 
   var destroyProduct = function destroyProduct(id) {
     state.isLoading = true;
-    return _config__WEBPACK_IMPORTED_MODULE_2__["default"]["delete"](url + id);
+    return _config__WEBPACK_IMPORTED_MODULE_2__["default"]["delete"](url + '/' + id);
   };
 
   return _objectSpread(_objectSpread({}, (0,vue__WEBPACK_IMPORTED_MODULE_1__.toRefs)(state)), {}, {

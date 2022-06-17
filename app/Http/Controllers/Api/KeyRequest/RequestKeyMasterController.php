@@ -1,28 +1,27 @@
 <?php
 
-namespace App\Http\Controllers\Api\Expense;
+namespace App\Http\Controllers\Api\KeyRequest;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Expense\ExpenseResource;
-use App\Models\Expense\Expense;
+use App\Http\Resources\KeyRequest\KeyRequestResource;
+use App\Models\KeyRequest\KeyRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 
-class ExpenseController extends Controller
+class RequestKeyMasterController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $expense=Cache::rememberForever("expenseList".$request->user()->id,function() use ($request)
-        {
-            return Expense::where('user_id',$request->user()->id)->get();
-        });
+         $new_requests=KeyRequest::query()
+         ->where('request_is_processed',0)
+         ->with('Product')
+         ->paginate(5);
 
-        return ExpenseResource::collection($expense);
+         return KeyRequestResource::collection($new_requests);
     }
 
     /**

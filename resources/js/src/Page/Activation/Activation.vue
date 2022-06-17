@@ -2,8 +2,8 @@
   <MainLayout>
     <template v-slot:top-section>
       <Tittle>
-        <template v-slot:pre-tittle>My Products</template>
-        <template v-slot:page-tittle>My Products </template>
+        <template v-slot:pre-tittle>New Request</template>
+        <template v-slot:page-tittle>New Key Request </template>
         <template v-slot:right-side-content>
           <div class="btn-list">
             <span class="d-none d-sm-inline">
@@ -66,23 +66,25 @@
     <template v-slot:content>
       <div class="card p-5">
         <div class="row row-cards">
-          <div class="col-md-12" v-if="products">
-            <template v-for="product in products.data" :key="product.id">
-              <ProductCard
-                :productId="product.id"
-                :productProductionId="product.product_id"
-                :productName="product.product_name"
-                :description="product.description"
-                :handleDelete="handleDelete"
+          <div class="col-md-12" v-if="requestes">
+            <template v-for="request in requestes.data" :key="request.id">
+              <ActivationRequestCard
+                :requestId="request.id"
+                :requestDomine="request.domine"
+                :requestIp="request.ipaddress"
+                :username="request.username"
+                :email="request.email"
+                :productName="request.product.product_name"
+                :productId="request.product.product_id"
               />
             </template>
           </div>
         </div>
         <div class="float-end">
           <Pagination
-            :data="products"
+            :data="requestes"
             :align="'right'"
-            @pagination-change-page="getProducts"
+            @pagination-change-page="getActivationRequests"
           />
         </div>
       </div>
@@ -93,24 +95,25 @@
 <script>
 import MainLayout from "../../layout/Main/Main.vue";
 import Tittle from "../../layout/Tittle/Tittle.vue";
-import ProductCard from "../../../components/Widget/ProductCard/ProductCard.vue";
-import useProduct from "../../composables/useProduct";
+import useKeyRequest from "../../composables/useKeyRequest";
 import LaravelVuePagination from "laravel-vue-pagination";
 import { onMounted } from "@vue/runtime-core";
+import ActivationRequestCard from "../../../components/Widget/ActivationRequestCard/ActivationRequestCard.vue";
 export default {
   components: {
     MainLayout,
     Tittle,
-    ProductCard,
     Pagination: LaravelVuePagination,
-  },
+    ActivationRequestCard
+},
   setup() {
-    const { isLoading, products, destroyProduct, getProducts } = useProduct();
+    const { isLoading, requestes,getActivationRequests, getActivationRequest,
+        destroyActivationRequest, } = useKeyRequest();
 
     const handleDelete = (id) => {
       destroyProduct(id).then((e) => {
         if (e.status == 200) {
-          getProducts(1);
+          getActivationRequests(1);
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -124,10 +127,10 @@ export default {
     };
 
     onMounted(() => {
-      getProducts(1);
+      getActivationRequests(1);
     });
 
-    return { products, isLoading, handleDelete, getProducts };
+    return { requestes, isLoading, handleDelete, getActivationRequests };
   },
 };
 </script>
