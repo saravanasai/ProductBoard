@@ -12,6 +12,9 @@ const NewProduct = import('../Page/Product/NewProduct.vue');
 const EditProduct = import('../Page/Product/EditProduct.vue');
 
 
+const Activation = import('../Page/Activation/Activation.vue');
+
+
 const routes = [
     {
         path: "/",
@@ -23,6 +26,12 @@ const routes = [
         path: "/login-user",
         name: "login",
         component: Login,
+    },
+    {
+        path: "/new-activation-requests",
+        name: "newrequest",
+        component: Activation,
+        meta:{requiresAuth: true}
     },
     {
         path: "/my-products",

@@ -85,7 +85,7 @@ export default {
       // inject reactive value
     const { updateAuthState } = inject("store");
 
-    const state = reactive({ email: "", password: "", isVisible: false });
+    const state = reactive({ email: "admin@exciteon.com", password: "1234", isVisible: false });
 
     const { login,setAuthToken } = useAuth();
 const { router, route } = useNavigation();

@@ -23,6 +23,7 @@ class RouteServiceProvider extends ServiceProvider
 
         ['folder_name'=>'Authentication','file_name'=>'auth_routes'],
         ['folder_name'=>'Product','file_name'=>'product_routes'],
+        ['folder_name'=>'KeyRequest','file_name'=>'keyrequest_route'],
 
     ];
     /**

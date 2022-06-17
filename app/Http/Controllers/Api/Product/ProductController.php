@@ -19,11 +19,7 @@ class ProductController extends Controller
     public function index()
     {
 
-        $product_list = Cache::rememberForever('products', function () {
-            return Product::all();
-        });
-
-        return ProductResource::collection($product_list);
+        return ProductResource::collection(Product::orderBy('id','DESC')->paginate(5));
     }
 
     /**
@@ -59,7 +55,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return Product::find($id)->update(["product_name" => $request->product_name, "product_description" => $request->description]);
+        return Product::find($id)->update([ "product_id"=>$request->product_id,"product_name" => $request->product_name, "product_description" => $request->description]);
     }
 
     /**

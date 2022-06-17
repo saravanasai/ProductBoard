@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Product;
+namespace App\Http\Requests\KeyRequest;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductStoreRequest extends FormRequest
+class KeyGenerationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,10 @@ class ProductStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            "product_id" => ['required'],
-            "product_name" => ['required'],
-            "product_description" => ['sometimes']
+            'productId'=>['required'],
+            'username'=>['required'],
+            'email'=>['required','email'],
+            'domine'=>['required'],
         ];
     }
 }
